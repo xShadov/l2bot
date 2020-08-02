@@ -1,4 +1,4 @@
-package com.shadov.test.l2bot;
+package com.shadov.test.l2bot.model;
 
 import io.vavr.collection.List;
 import lombok.AllArgsConstructor;
@@ -7,12 +7,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Colors {
-	// single screen mode
-	HP(-9496813),
-	PLAYER_RED(-8772325),
-	/*// multiple screen mode
-	HP(-8579569),
-	PLAYER_RED(-8772325),*/
+	HP(-9956595),
+	PLAYER_RED_HP(-8772325),
 	INVALID(0);
 
 	private int rgb;
@@ -24,6 +20,14 @@ public enum Colors {
 	}
 
 	private static boolean isClose(int source, int target) {
-		return Math.abs(target - source) < 100000;
+		return Math.abs(target - source) < 700000;
+	}
+
+	public static void modifyHP(int rgb) {
+		Colors.HP.rgb = rgb;
+	}
+
+	public static void modifyPlayerHP(int rgb) {
+		Colors.PLAYER_RED_HP.rgb = rgb;
 	}
 }

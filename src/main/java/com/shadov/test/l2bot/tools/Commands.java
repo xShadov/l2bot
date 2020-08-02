@@ -1,4 +1,4 @@
-package com.shadov.test.l2bot;
+package com.shadov.test.l2bot.tools;
 
 import io.vavr.collection.CharSeq;
 import io.vavr.collection.List;
@@ -12,6 +12,10 @@ public class Commands {
 
 	public static List<Integer> nextTarget() {
 		return keyCodesFor("/targetnext");
+	}
+
+	public static List<Integer> attack() {
+		return keyCodesFor("/attack");
 	}
 
 	private static List<Integer> keyCodesFor(final String command) {
