@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 @Slf4j
 public class Situation implements NativeKeyListener, NativeMouseInputListener {
-	public static final Spots SPOT = Spots.LOWER_DV;
+	public static final Spots SPOT = Spots.MEDIUM_DV;
 	public static final Characters CHARACTER = Characters.MAGE;
 
 	private static final AtomicBoolean fightingMob = new AtomicBoolean(false);
