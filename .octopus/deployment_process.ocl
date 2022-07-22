@@ -1,0 +1,34 @@
+step "Run a Script" {
+    properties = {
+        Octopus.Action.TargetRoles = "Web"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "print(2+5)"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Python"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "Run other Script" {
+    properties = {
+        Octopus.Action.MaxParallelism = "1"
+        Octopus.Action.TargetRoles = "Web"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "print(999)"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Python"
+        }
+        worker_pool_variable = ""
+    }
+}
