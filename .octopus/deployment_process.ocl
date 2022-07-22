@@ -1,47 +1,40 @@
 step "Run a Script" {
-    properties = {
-        Octopus.Action.TargetRoles = "Web"
-    }
 
     action {
         action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = "print(2+5)"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Python"
         }
-        worker_pool_variable = ""
+        worker_pool = "Default Worker Pool"
     }
 }
 
 step "Run other Script" {
     properties = {
         Octopus.Action.MaxParallelism = "1"
-        Octopus.Action.TargetRoles = "Web"
     }
 
     action {
         action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = "print(999)"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Python"
         }
-        worker_pool_variable = ""
+        worker_pool = "Default Worker Pool"
     }
 }
 
 step "Run a Script from Script Module" {
-    properties = {
-        Octopus.Action.TargetRoles = "Web"
-    }
 
     action {
         action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 import PythonScripts
                 PythonScripts.sayhello("George")
@@ -49,6 +42,6 @@ step "Run a Script from Script Module" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Python"
         }
-        worker_pool_variable = ""
+        worker_pool = "Default Worker Pool"
     }
 }
